@@ -6,7 +6,7 @@
 /*   By: pakopian <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:29:12 by pakopian          #+#    #+#             */
-/*   Updated: 2025/03/18 21:46:45 by pakopian         ###   ########.fr       */
+/*   Updated: 2025/03/18 21:59:17 by pakopian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,6 @@ int	print_pointer(size_t pt)
 {
 	write(1, "0x", 2);
 	return (2 + print_hex(num, 'x'))
-}
-
-int	print_number(int n)
-{
-	if (n == -2147483648)
-	{
-        	write(1, "-2147483648", 11);
-        	return;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
-	if (n >= 10)
-		ft_putnbr(n / 10);
-	ft_putchar(n % 10 + '0');
 }
 
 int	print_unsigned
