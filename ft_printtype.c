@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printtype.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pakopian <akopyanpyotrx99@gmail.com>       +#+  +:+       +#+        */
+/*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:29:12 by pakopian          #+#    #+#             */
-/*   Updated: 2025/03/26 21:23:24 by pakopian         ###   ########.fr       */
+/*   Updated: 2025/03/29 19:56:24 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	print_string(char *str)
 	return (write(1, str, ft_strlen(str)));
 }
 
-void	print_hex(unsigned int num, char spec, int *res)
+void	print_hex(unsigned long long num, char spec, int *res)
 {
 	const char	*hex_digit;
 
@@ -32,15 +32,15 @@ void	print_hex(unsigned int num, char spec, int *res)
 	*res += ft_putchar(hex_digit[num % 16]);
 }
 
-void	print_pointer(unsigned long pt, int *res)
+void	print_pointer(unsigned long long pt, int *res)
 {
 	if (!pt)
 	{
 		*res += print_string("(nil)");
 		return ;
 	}
-	*res += write(1, "0x", 2);
-	print_hex((unsigned long)pt, 'x', res);
+	*res += print_string("0x");
+	print_hex(pt, 'x', res);
 }
 
 void	print_unsigned(unsigned int n, int *res)
@@ -56,10 +56,10 @@ void	print_int(int n, int *res)
 	{
 		*res += write(1, "-2147483648", 11);
 		return ;
-	}	
+	}
 	if (n < 0)
 	{
-		*res = ft_putchar('-');
+		*res += ft_putchar('-');
 		n = -n;
 	}
 	if (n / 10)
