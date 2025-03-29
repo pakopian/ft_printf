@@ -18,10 +18,10 @@
 int ft_putchar(char c);
 int ft_printf(const char *str, ...);
 int print_string(char *str);
-int print_hex(unsigned long long num, char spec);
-int print_int(int n);
-int print_unsigned(unsigned int n);
-int print_pointer(unsigned long long pt);
+void print_hex(unsigned int num, char spec, int *res);
+void print_int(int n, int *res);
+void print_unsigned(unsigned int n, int *res);
+void print_pointer(unsigned long pt, int *res);
 int ft_strlen(char *str);
 
 #endif

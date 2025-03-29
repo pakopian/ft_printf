@@ -22,10 +22,10 @@ int ft_strlen(char *str)
 
     len = 0;
     while (*str)
-{
+    {
 		len++;
         str++;
-}
+    }
     return (len);
 }
 static void check_modifier(char c, int *result, va_list args)
@@ -37,13 +37,13 @@ static void check_modifier(char c, int *result, va_list args)
     else if (c == 's')
         *result += print_string(va_arg(args, char *));
     else if (c == 'p')
-        *result += print_pointer(va_arg(args, unsigned long long));
+        print_pointer(va_arg(args, unsigned long), result);
     else if (c == 'i' || c == 'd')
-        *result += print_int(va_arg(args, int));
+        print_int(va_arg(args, int), result);
     else if (c == 'u')
-        *result += print_unsigned(va_arg(args, unsigned int));
+        print_unsigned(va_arg(args, unsigned int), result);
     else if (c == 'x' || c == 'X')
-        *result += print_hex(va_arg(args, unsigned long long), c);
+        print_hex(va_arg(args, unsigned int), c, result);
 }
 
 int	ft_printf(const char *str, ...)
